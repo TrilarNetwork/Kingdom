@@ -48,7 +48,10 @@ public class MiningEvent implements Listener {
                             afterBreak(p, b, Color.GRAY, loc, 1);
                             break;
                         case COAL_ORE:
-                            afterBreak(p, b, Color.GRAY, loc, 2);
+                            afterBreak(p, b, Color.BLACK, loc, 2);
+                            break;
+                        case EMERALD_ORE:
+                            afterBreak(p, b, Color.GREEN, loc, 6);
                             break;
                         case BEDROCK:
                             break;
@@ -60,7 +63,7 @@ public class MiningEvent implements Listener {
                     event.setCancelled(false);
                 } else {
                     event.setCancelled(true);
-                    p.sendMessage("You need a pickaxe!");
+                    p.sendMessage(ChatColor.RED + "You need a pickaxe!");
                 }
             }
         }

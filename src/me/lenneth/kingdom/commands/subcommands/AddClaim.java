@@ -28,7 +28,7 @@ public class AddClaim extends ClaimSubCommands {
 
     @Override
     public String getSyntax() {
-        return "/claim add <name>";
+        return "/dungeon add <name>";
     }
 
     @Override

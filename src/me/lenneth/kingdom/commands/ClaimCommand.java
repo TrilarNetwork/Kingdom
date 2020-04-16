@@ -39,14 +39,15 @@ public class ClaimCommand implements TabExecutor {
                     getSubCommands().get(i).perform(p, args);
                 }
             }
-            if(args[0].equalsIgnoreCase("zones")) {
+            if(args[0].equalsIgnoreCase("list")) {
                 if(plugin.claims.isEmpty()) {
-                    p.sendMessage(ChatColor.RED + "There are no mining zones!");
-                }
-                p.sendMessage(ChatColor.BOLD.DARK_GREEN + "Zones: ");
-                for(Claims claim : plugin.claims) {
-                    p.sendMessage(ChatColor.DARK_RED + "\n----------\n");
-                    p.sendMessage(ChatColor.GOLD + claim.getName());
+                    p.sendMessage(ChatColor.RED + "There are no dungeons!");
+                } else{
+                    p.sendMessage(ChatColor.BOLD.DARK_GREEN + "Dungeons: ");
+                    for(Claims claim : plugin.claims) {
+                        p.sendMessage(ChatColor.DARK_RED + "\n----------\n");
+                        p.sendMessage(ChatColor.GOLD + claim.getName());
+                    }
                 }
             }
         }
@@ -63,7 +64,7 @@ public class ClaimCommand implements TabExecutor {
             for(int i = 0; i < getSubCommands().size(); i++) {
                 subCommandArgs.add(getSubCommands().get(i).getName());
             }
-            subCommandArgs.add("zones");
+            subCommandArgs.add("list");
             return subCommandArgs;
         }
         else if(args.length == 2) {

@@ -4,7 +4,7 @@ import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 
-abstract class ClaimSubCommands {
+public abstract class ClaimSubCommands {
 
     public abstract String getName();
 

@@ -49,16 +49,16 @@ public class RemoveClaim extends ClaimSubCommands {
     public void perform(Player p, String[] args) {
         if (args.length == 1) {
             if (plugin.claims.isEmpty()) {
-                p.sendMessage(ChatColor.DARK_RED + "There are no mining zones!");
+                p.sendMessage(ChatColor.DARK_RED + "There are no dungeons!");
             } else if (!plugin.claims.isEmpty()) {
                 Location loc = p.getLocation();
                 for (Claims claim : plugin.claims) {
                     if (claim.between((int) loc.getX(), (int) loc.getZ())) {
-                        p.sendMessage(ChatColor.GOLD + "You have removed claim: " + ChatColor.AQUA + claim.getName());
+                        p.sendMessage(ChatColor.GOLD + "You have removed dungeon: " + ChatColor.AQUA + claim.getName());
                         plugin.claims.remove(claim);
                     }
                     else {
-                        p.sendMessage(ChatColor.RED + "You are not in a claimed zone!");
+                        p.sendMessage(ChatColor.RED + "You are not in a dungeon zone!");
                     }
                 }
             }
@@ -67,11 +67,11 @@ public class RemoveClaim extends ClaimSubCommands {
             String name = args[1];
             for (Claims claim : plugin.claims) {
                 if (name.equalsIgnoreCase(claim.getName())) {
-                    p.sendMessage(ChatColor.GOLD + "You have removed claim: " + ChatColor.AQUA + claim.getName());
+                    p.sendMessage(ChatColor.GOLD + "You have removed dungeon: " + ChatColor.AQUA + claim.getName());
                     plugin.claims.remove(claim);
                 }
                 else {
-                    p.sendMessage(ChatColor.DARK_RED + "This claim does not exist!");
+                    p.sendMessage(ChatColor.DARK_RED + "This dungeon does not exist!");
                 }
             }
         }

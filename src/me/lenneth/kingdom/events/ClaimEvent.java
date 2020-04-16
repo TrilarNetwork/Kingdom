@@ -25,11 +25,12 @@ public class ClaimEvent implements Listener {
     }
 
     @EventHandler
-    public void leftClick(BlockBreakEvent event) {
+    public void leftClick(PlayerInteractEvent event) {
         Player p = event.getPlayer();
-        Block b = event.getBlock();
+        Block b = event.getClickedBlock();
+        Action a = event.getAction();
         ItemStack item = p.getInventory().getItemInMainHand();
-        if (item.getType().equals(Material.SAND)) {
+        if (item.getType().equals(Material.SAND) && a.equals(Action.LEFT_CLICK_BLOCK)) {
             event.setCancelled(true);
             first = new BlockMetaData(b.getWorld(), b.getX(), b.getY(), b.getZ(), b.getType());
             if(plugin.claimPoints.size() != 2) {
